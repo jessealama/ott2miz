@@ -416,7 +416,16 @@ kind is either 'pred' or 'func'"
        (function (lambda (key val) (mizinsert "O" (car val) "\n")))
        funcs)
       (maphash
-       (function (lambda (key val) (mizinsert "R" (car val) "\n")))
+       (function (lambda (key val)
+		   (let ((relation-symbol (car val)))
+		     ;; accom complains about repeated vocabulary
+		     ;; symbols if it finds "R=" in the new vocabulary
+		     ;; file.  Since equality = is already implicitly
+		     ;; present in any mizar article (thanks to
+		     ;; HIDDEN), don't include it in our new
+		     ;; vocabulary file.
+		     (unless (string= relation-symbol "=")
+		       (mizinsert "R" (car val) "\n")))))
        preds)
       (set-buffer-modified-p t)
       (save-buffer))
