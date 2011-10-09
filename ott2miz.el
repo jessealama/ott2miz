@@ -525,12 +525,12 @@ if mizsymbs given, the hash of mizar syms is not created here."
 	(ott2miz (read (current-buffer)) sign rules mizname)))))
 
 (defun translate-many (indexname)
-"Translate files from index"
-(save-excursion
-  (find-file indexname)
-  (let* ((names (split-string (buffer-string) "\n"))
-	 (used (make-hash-table :size (length names) :test 'equal))
-	 (mizsymbs (create-name-hash mizar-syms)))
-    (while names
-      (translate-file (car names) used mizsymbs)
-      (setq names (cdr names))))))
+  "Translate files from index"
+  (save-excursion
+    (find-file indexname)
+    (let* ((names (split-string (buffer-string) "\n"))
+	   (used (make-hash-table :size (length names) :test 'equal))
+	   (mizsymbs (create-name-hash mizar-syms)))
+      (while names
+	(translate-file (car names) used mizsymbs)
+	(setq names (cdr names))))))
