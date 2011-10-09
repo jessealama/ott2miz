@@ -530,6 +530,8 @@ if mizsymbs given, the hash of mizar syms is not created here."
     (error "The index file '%s' doesn't exist!" indexname))
   (unless (file-readable-p indexname)
     (error "The index file '%s' is unreadable!" indexname))
+  (when (file-directory-p indexname)
+    (error "The index file '%s' is actually a directory!" indexname))
   (save-excursion
     (find-file indexname)
     (let* ((names (split-string (buffer-string) "\n"))
