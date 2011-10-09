@@ -96,7 +96,7 @@ Returns the string created."
 
 (defun parse-rules (fname)
 (when (file-readable-p fname)
-  (let ((res (makehash)) tab)
+  (let ((res (make-hash-table)) tab)
     (with-temp-buffer
       (insert-file-contents-literally fname)
       (goto-char (point-min))
@@ -500,7 +500,10 @@ if mizsymbs given, the hash of mizar syms is not created here."
 	 (rname (concat (file-name-sans-extension fname)
 			rule-file-extension))
 	 (rules (parse-rules rname))
-	 (sign  (list (makehash) (makehash) (makehash) (makehash)
+	 (sign  (list (make-hash-table)
+		      (make-hash-table)
+		      (make-hash-table)
+		      (make-hash-table)
 		      (if mizsymbs mizsymbs
 			(create-name-hash mizar-syms)))))
     (unless (string-match "^\\([A-Z0-9_+-]+\\).*" name1)
