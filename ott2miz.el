@@ -31,11 +31,6 @@
 
 (defvar mizar-syms '(and antonym attr as assume be begin being canceled case cases cluster coherence compatibility consider consistency constructors contradiction correctness clusters def deffunc definition definitions defpred environ equals ex existence for func given hence  requirements holds if iff implies irreflexivity it let means mode not notation notations of or otherwise  over per pred provided qua reconsider redefine reflexivity reserve scheme schemes signature struct such suppose synonym take that thus then theorems vocabularies where associativity commutativity connectedness irreflexivity reflexivity symmetry uniqueness transitivity idempotence asymmetry projectivity involutiveness by from proof now end hereby for ex not & or implies iff st holds being theorem scheme definition thesis empty in))
 
-
-
-
-
-
 (defun int-or-symbol-name (obj)
 (if (symbolp obj) (symbol-name obj)
   (int-to-string obj)))
