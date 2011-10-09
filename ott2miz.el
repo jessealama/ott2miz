@@ -526,6 +526,10 @@ if mizsymbs given, the hash of mizar syms is not created here."
 
 (defun translate-many (indexname)
   "Translate files from index"
+  (unless (file-exists-p indexname)
+    (error "The index file '%s' doesn't exist!" indexname))
+  (unless (file-readable-p indexname)
+    (error "The index file '%s' is unreadable!" indexname))
   (save-excursion
     (find-file indexname)
     (let* ((names (split-string (buffer-string) "\n"))
