@@ -466,14 +466,6 @@ kind is either 'pred' or 'func'"
     ))
 
 
-(defun create-name-hash (syms)
-(let ((res (make-hash-table :size (length syms))))
-  (while syms
-    (puthash (car syms) (symbol-name (car syms)) res)
-    (setq syms (cdr syms)))
-  res))
-
-
 (defvar allowed-chars "abcdefghijklopqrstuvwxyz")
 
 (defun gen-new-name (mizname used)
