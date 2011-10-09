@@ -29,7 +29,29 @@
 (setq max-lisp-eval-depth 2000)
 (setq max-specpdl-size 2000)
 
-(defvar mizar-syms '(and antonym attr as assume be begin being canceled case cases cluster coherence compatibility consider consistency constructors contradiction correctness clusters def deffunc definition definitions defpred environ equals ex existence for func given hence  requirements holds if iff implies irreflexivity it let means mode not notation notations of or otherwise  over per pred provided qua reconsider redefine reflexivity reserve scheme schemes signature struct such suppose synonym take that thus then theorems vocabularies where associativity commutativity connectedness irreflexivity reflexivity symmetry uniqueness transitivity idempotence asymmetry projectivity involutiveness by from proof now end hereby for ex not & or implies iff st holds being theorem scheme definition thesis empty in))
+(defvar mizar-syms
+  '(and antonym attr as assume associativity asymmetry
+    be begin being by
+    canceled case cases cluster coherence compatibility consider consistency constructors contradiction correctness clusters commutativity connectedness
+    def deffunc definition definitions defpred
+    environ equals ex existence end empty
+    for func from
+    given
+    hence holds hereby
+    if iff implies irreflexivity it idempotence involutiveness in
+    let
+    means mode
+    not notation notations now
+    of or otherwise over
+    per pred provided projectivity proof
+    qua
+    reconsider redefine reflexivity requirements reserve
+    scheme schemes signature struct such suppose synonym symmetry st
+    take that thus then theorems transitivity theorem thesis
+    uniqueness
+    vocabularies
+    where
+    &))
 
 (defun int-or-symbol-name (obj)
   (cond ((symbolp obj) (symbol-name obj))
