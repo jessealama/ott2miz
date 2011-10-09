@@ -516,6 +516,3 @@ if mizsymbs given, the hash of mizar syms is not created here."
     (while names
       (translate-file (car names) used mizsymbs)
       (setq names (cdr names))))))
-
-
-
