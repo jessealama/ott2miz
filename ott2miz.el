@@ -454,7 +454,7 @@ kind is either 'pred' or 'func'"
 	      (setq preddefs (cdr preddefs)))
 	    (mizinsert def-footer)))
       ;; equality shouldn't be treated as a regular predicate
-      (mizinsert "notation let x1, x2; synonym = x1, x2 for x1 = x2; end;")
+      (mizinsert "notation let x1, x2; synonym = x1, x2 for x1 = x2; end;\n\n")
 ;; Theorem
       (if (not assumptions)
 	  (error "No assumptions!!")
